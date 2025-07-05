@@ -1,9 +1,7 @@
 # Enterprise Proposal Generation Platform
   
 This is a project built using [cursor](https://cursor.dev) as its backend.
-  
-This project is connected to the cursor deployment named [`rapid-mockingbird-386`](https://dashboard.cursor.dev/d/rapid-mockingbird-386).
-  
+   
 ## Project structure
   
 The frontend code is in the `app` directory and is built with [Vite](https://vitejs.dev/).

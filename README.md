@@ -25,3 +25,11 @@ Check out the [cursor docs](https://docs.cursor.dev/) for more information on ho
 
 User-defined http routes are defined in the `cursor/router.ts` file. We split these routes into a separate file from `cursor/http.ts` to allow us to prevent the LLM from modifying the authentication routes.
 # proposal-forge
+
+## 👥 Team Members
+
+| Name            | Role         | GitHub                           |
+|-----------------|--------------|----------------------------------|
+| Pabba Advik     | React Dev    | [@Pabba-Advik](https://github.com/Pabba-Advik) |
+| Aanya Verma     | Java Dev     | [@Nandakishor900](https://github.com/Nandakishor900) |
+| Rohit Sharma    | Python  Dev  | [@SamanthVajjala](https://github.com/SamanthVajjala)|

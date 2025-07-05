@@ -31,5 +31,5 @@ User-defined http routes are defined in the `cursor/router.ts` file. We split th
 | Name            | Role         | GitHub                           |
 |-----------------|--------------|----------------------------------|
 | Pabba Advik     | React Dev    | [@Pabba-Advik](https://github.com/Pabba-Advik) |
-| Aanya Verma     | Java Dev     | [@Nandakishor900](https://github.com/Nandakishor900) |
-| Rohit Sharma    | Python  Dev  | [@SamanthVajjala](https://github.com/SamanthVajjala)|
+| Nanda Kishor    | Java Dev     | [@Nandakishor900](https://github.com/Nandakishor900) |
+| Samanth Vajjala | Python  Dev  | [@SamanthVajjala](https://github.com/SamanthVajjala)|

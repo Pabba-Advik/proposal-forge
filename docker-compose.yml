@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    container_name: proposalforge_db
+    environment:
+      POSTGRES_DB: proposalforge
+      POSTGRES_USER: proposalforge_user
+      POSTGRES_PASSWORD: proposalforge_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database_setup.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - proposalforge_network
+
+  # FastAPI Backend
+  backend:
+    build: ./backend
+    container_name: proposalforge_backend
+    environment:
+      DATABASE_URL: postgresql://proposalforge_user:proposalforge_password@postgres:5432/proposalforge
+      SECRET_KEY: your-super-secret-key-change-this-in-production
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 30
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend:/app
+    networks:
+      - proposalforge_network
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # pgAdmin (Optional - for database management)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: proposalforge_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@proposalforge.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - proposalforge_network
+
+volumes:
+  postgres_data:
+
+networks:
+  proposalforge_network:
+    driver: bridge
